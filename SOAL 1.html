@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nilai Akhir Siswa</title>
+</head>
+<body>
+
+    <h2>Menghitung Nilai Akhir Siswa</h2>
+
+    Nama: <input type="text" id="nama"><br><br>
+    Nilai Tugas: <input type="number" id="tugas"><br><br>
+    Nilai UTS: <input type="number" id="uts"><br><br>
+    Nilai UAS: <input type="number" id="uas"><br><br>
+
+    <button onclick="hitungNilai()">Hitung Nilai</button>
+
+    <div id="hasil"></div>
+
+    <script>
+        function hitungNilai() {
+            let nama = document.getElementById("nama").value;
+            let tugas = Number(document.getElementById("tugas").value);
+            let uts = Number(document.getElementById("uts").value);
+            let uas = Number(document.getElementById("uas").value);
+
+            let nilaiAkhir = (tugas * 30 / 100) +
+                             (uts * 30 / 100) +
+                             (uas * 40 / 100);
+
+            let status;
+
+            if (nilaiAkhir >= 75) {
+                status = "LULUS";
+            } else {
+                status = "TIDAK LULUS";
+            }
+
+            console.log("Nama: " + nama);
+            console.log("Nilai Akhir: " + nilaiAkhir);
+            console.log("Status: " + status);
+
+            document.getElementById("hasil").innerHTML =
+                "<h3>Hasil Perhitungan</h3>" +
+                "Nama: " + nama + "<br>" +
+                "Nilai Akhir: " + nilaiAkhir + "<br>" +
+                "Status: " + status;
+        }
+    </script>
+
+</body>
+</html>
